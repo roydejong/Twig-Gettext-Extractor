@@ -54,7 +54,22 @@ class Extractor
     public function addTemplate($path)
     {
         $this->environment->loadTemplate($path);
-        $this->templates[] = $this->environment->getCacheFilename($path);
+        $this->templates[] = $this->getCacheFilename($path);
+    }
+    
+    private function getCacheFilename($path)
+    {
+        $cacheValue = $this->environment->getCache();
+        
+        if (is_string($cacheValue)) {
+            $cacheInstance = new \Twig_Cache_Filesystem($cacheValue);    
+        } else if (is_object($cacheValue)) {
+            $cacheInstance = $cacheValue;
+        } else {
+            throw new \RuntimeException("getCacheFilename() called, but cache is not configured");
+        }
+        
+        return $cacheInstance->generateKey($path, $this->environment->getTemplateClass($path));
     }
 
     public function addGettextParameter($parameter)
