@@ -22,8 +22,11 @@ class Filesystem extends \Twig_Loader_Filesystem
      * Hacked find template to allow loading templates by absolute path.
      *
      * @param string $name template name or absolute path
+     * @param bool $throw
+     * @throws \Twig_Error_Loader
+     * @return string
      */
-    protected function findTemplate($name)
+    protected function findTemplate($name, $throw = true)
     {
         // normalize name
         $name = preg_replace('#/{2,}#', '/', strtr($name, '\\', '/'));
@@ -32,7 +35,9 @@ class Filesystem extends \Twig_Loader_Filesystem
             return $this->cache[$name];
         }
 
-        $this->validateName($name);
+        $validateNameMethod = new \ReflectionMethod($this, 'validateName');
+        $validateNameMethod->setAccessible(true);
+        $validateNameMethod->invoke($this, $name);
 
         $namespace = '__main__';
         if (isset($name[0]) && '@' == $name[0]) {
