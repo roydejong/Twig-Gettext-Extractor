@@ -1,5 +1,5 @@
 {
-    "name": "softwarepunt/twig-gettext-extractor",
+    "name": "roydejong/twig-gettext-extractor",
     "type": "application",
     "description": "(Updated for Twig 2.2) The Twig Gettext Extractor is Poedit friendly tool which extracts translations from twig templates.",
     "license": "MIT",
