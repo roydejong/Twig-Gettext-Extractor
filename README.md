@@ -1,26 +1,11 @@
-<h3 align="center">
-    <a href="https://github.com/umpirsky">
-        <img src="https://farm2.staticflickr.com/1709/25098526884_ae4d50465f_o_d.png" />
-    </a>
-</h3>
-<p align="center">
-  <a href="https://github.com/umpirsky/Symfony-Upgrade-Fixer">symfony upgrade fixer</a> &bull;
-  <b>twig gettext extractor</b> &bull;
-  <a href="https://github.com/umpirsky/wisdom">wisdom</a> &bull;
-  <a href="https://github.com/umpirsky/centipede">centipede</a> &bull;
-  <a href="https://github.com/umpirsky/PermissionsHandler">permissions handler</a> &bull;
-  <a href="https://github.com/umpirsky/Extraload">extraload</a> &bull;
-  <a href="https://github.com/umpirsky/Gravatar">gravatar</a> &bull;
-  <a href="https://github.com/umpirsky/locurro">locurro</a> &bull;
-  <a href="https://github.com/umpirsky/country-list">country list</a> &bull;
-  <a href="https://github.com/umpirsky/Transliterator">transliterator</a>
-</p>
-
 Twig Gettext Extractor [![Build Status](https://secure.travis-ci.org/umpirsky/Twig-Gettext-Extractor.svg?branch=master)](http://travis-ci.org/umpirsky/Twig-Gettext-Extractor)
 ======================
 
 The Twig Gettext Extractor is [Poedit](http://www.poedit.net/download.php)
 friendly tool which extracts translations from twig templates.
+
+## This fork
+Hello. This fork has been designed for **compatibility with version 2 of twig**. It's a bit of a hack, but it works. This fork also removes the dependency on symfony which might make it a bit easier to install.
 
 ## Installation
 
