@@ -7,6 +7,8 @@ friendly tool which extracts translations from twig templates.
 ## This fork
 Hello. This fork has been designed for **compatibility with version 2 of twig**. It's a bit of a hack, but it works. This fork also removes the dependency on symfony which might make it a bit easier to install.
 
+This fork also lets you add "dummy filters" via a `--filter` parameter to prevent the extractor from breaking when it encounters user-defined filters.
+
 ## Installation
 
 ### Manual
@@ -77,3 +79,17 @@ Now you may add your custom extensions [here](https://github.com/umpirsky/Twig-G
 $twig->addFunction(new \Twig_SimpleFunction('myCustomExtension', true));
 $twig->addFunction(new \Twig_SimpleFunction('myCustomExtension2', true));
 ```
+
+## Custom filters (in this fork)
+
+If you're using custom, user-defined twig filters, the extractor will break when it encounters them.  
+
+You can modify the parser command in Poedit if you want to register custom filters.
+
+Doing so will create a dummy filter that will return the input as output without modifying it.
+
+For example, if you have a `currency` filter, modify your parser command as follows:
+
+    twig-gettext-extractor --sort-output --force-po -o %o %C %K -L PHP --filters currency --files %F
+    
+The `--filters` command must be added after the gettext parameters but before the `--files` declaration to work correctly. You can add multiple filters by delimiting them with a space.
