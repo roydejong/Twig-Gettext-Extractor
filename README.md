@@ -5,9 +5,23 @@ The Twig Gettext Extractor is [Poedit](http://www.poedit.net/download.php)
 friendly tool which extracts translations from twig templates.
 
 ## This fork
-Hello. This fork has been designed for **compatibility with version 2 of twig**. It's a bit of a hack, but it works. This fork also removes the dependency on symfony which might make it a bit easier to install.
+Hello. Here's some things this fork offers:
 
-This fork also lets you add "dummy filters" via a `--filter` parameter to prevent the extractor from breaking when it encounters user-defined filters.
+- This fork has been designed for **compatibility with version 2 of twig**. It's a bit of a hack, but it works.
+- Removed symfony dependencies which might make it a bit easier to install.
+- You can add "dummy filters" via a `--filter` parameter to prevent the extractor from breaking when it encounters user-defined filters that would cause template parsing to break.
+- If extraction fails for whatever reason, a log file will be dumped to the directory in which the gettext extractor library lives.
+
+This fork is available on Packagist as a composer package for your convenience:
+
+    composer require roydejong/twig-gettext-extractor
+    
+Or, to install globally (to your home directory) - recommended:
+
+    composer global require roydejong/twig-gettext-extractor
+
+
+# Original documentation
 
 ## Installation
 
